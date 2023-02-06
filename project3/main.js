@@ -1,55 +1,49 @@
-//////main variable
-let inputUserName = document.querySelector(".repo-container .header input") ;
-let getButton =document.querySelector(".repo-container .header  .get-button") ;
-let data =document.querySelector(".repo-container .data") ;
-///////
-getButton.onclick = function(){
-  getRepos();
+let btn = document.querySelector(".get-button");
+let input = document.querySelector(".header input[type=text]");
+let data = document.querySelector(".data");
+//////////////////main function
+let getDate = function () {
+  if (!input.value == "") {
+    document.querySelector(".data ").innerHTML = "";
+    fetch(`https://api.github.com/users/${input.value}/repos`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((repos) => {
+        repos.forEach((repo) => {
+          let main = document.createElement("div");
+          main.classList.add("repo");
+          let repoName = document.createTextNode(repo.name);
 
-}
-window.addEventListener("keypress",()=>{
-  getRepos();
-})
-////make a function to get repos  
-function getRepos(){
-  if(inputUserName.value == ""){
-    data.innerHTML =`${ "<span> Please enter username </span> "}` ;
-  }else{    
-    data.innerHTML="";
-    fetch(`https://api.github.com/users/${inputUserName.value}/repos`).then((repos)=>{
-      return repos.json();
-    }).then((dataOfrepos)=>{
-      dataOfrepos.forEach((repo) => {
-        //create the repo div and put name 
-        let repoDiv =document.createElement("div");
-        repoDiv.classList.add("repo");
-        ///// put name 
-        let repoNameDiv =document.createElement("span");
-        let nameRepo = document.createTextNode(repo.name);
-        repoNameDiv.appendChild(nameRepo);
-        repoDiv.appendChild(repoNameDiv);
-        ///////////////////////////
-        let infoDiv = document.createElement("div") ;
-        infoDiv.classList.add("info");
-        ////////////////// link of repo
-        let aToRepo =document.createElement("a");
-        let linkOfRepo =document.createTextNode("visit");
-        aToRepo.appendChild(linkOfRepo);
-        aToRepo.href =repo.html_url ;
-        aToRepo.target="_blank" ;
-        infoDiv.appendChild(aToRepo);  
-        //////////////////// number of stars
-        let starsSpan = document.createElement("span");
-        let starsCount = document.createTextNode(`starts ${repo.stargazers_count}`) ;  
-        starsSpan.appendChild(starsCount);        
-        infoDiv.appendChild(starsSpan); 
-        
-        //////////////////////////  
-        repoDiv.appendChild(infoDiv ); 
-        data.appendChild(repoDiv);
+          let info = document.createElement("div");
+          info.classList.add("info");
+
+          let link = document.createElement("a");
+          let visit = document.createTextNode("visit");
+          link.appendChild(visit);
+          link.href = repo.html_url;
+          link.target = "_blanck";
+
+          let starCount = document.createElement("span");
+          let starCountNum = document.createTextNode(
+            `stars ${repo.stargazers_count}`
+          );
+          starCount.appendChild(starCountNum);
+
+          info.appendChild(link);
+          info.appendChild(starCount);
+
+          main.appendChild(repoName);
+          main.appendChild(info);
+          data.appendChild(main);
+        });
       });
-    })
-  }
-
-}
-////////////
+  } else window.alert("enter user name");
+};
+///////////////////
+btn.onclick = () => {
+  getDate();
+};
+window.addEventListener("keypress", () => {
+  getDate();
+});

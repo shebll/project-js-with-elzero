@@ -1,7 +1,10 @@
-let el = document.querySelector(".scroller") ;
-let h =document.documentElement.scrollHeight - document.documentElement.clientHeight ;
-window.addEventListener("scroll",()=>{
-  let scrollTop =document.documentElement.scrollTop ;  
-  el.style.width = `${(scrollTop / h ) * 100}%` ;
+let scroller = document.querySelector(".scroller");
+const scrollHeight = document.documentElement.scrollHeight;
+const clientHeight = document.documentElement.clientHeight;
 
-})
+window.addEventListener("scroll", () => {
+  let topOffset = document.documentElement.scrollTop;
+  // console.log((topOffset / (scrollHeight - clientHeight)) * 100);
+  let width = (topOffset / (scrollHeight - clientHeight)) * 100;
+  scroller.style.width = ` ${width}% `;
+});
