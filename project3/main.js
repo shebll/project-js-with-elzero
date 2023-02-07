@@ -44,6 +44,12 @@ let getDate = function () {
 btn.onclick = () => {
   getDate();
 };
-window.addEventListener("keypress", () => {
-  getDate();
-});
+// window.addEventListener("keypress", () => {
+//   getDate();
+// });
+document.onkeyup = function (e) {
+  // console.log(e);
+  if (e.key == " " || e.key == "Enter") {
+    getDate();
+  }
+};
