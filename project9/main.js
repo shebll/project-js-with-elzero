@@ -1,29 +1,36 @@
-let progress =document.querySelectorAll(".skills .progress span");
-let section =document.querySelector(".three");
-let started =false ;
+let randomDigit1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+let randomDigit2 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "A", "B", "C", "D", "E", "F"];
+//the color in hex = #FF00FF
+let finalColor1 = [];
+let finalColor2 = [];
+// console.log(Math.random()); //random number from 0 to 1
+// console.log(Math.random() * randomDigit.length); // random number from 0 * 3 to 1 * 3 (mean 0 to 3) , but have a fraction
+// console.log(Math.trunc(Math.random() * randomDigit.length)); // random number from 0 * 3 to 1 * 3 (mean 0 to 3)
+// console.log(randomDigit[Math.trunc(Math.random() * randomDigit.length)]); // random number from 0 * 3 to 1 * 3 (mean 0 to 3)
 
-
-window.onscroll=function(){
-  if(scrollY >= section.offsetTop-300){ 
-
-    if(!started)   {
-      progress.forEach(progres => {
-        progres.style.width = `${progres.dataset.width}% `;  
-        
-      });
-      
-    }
-    started=true;
-  }
+for (let i = 0; i < 6; i++) {
+  finalColor1.push(
+    randomDigit1[Math.trunc(Math.random() * randomDigit1.length)]
+  );
 }
-
-
-// function startCount(el){
-//   let goal =el.dataset.goal ;
-//   let count = setInterval(() => {
-//     el.textContent++ ;
-//     if(el.textContent == goal){
-//       clearInterval(count);
-//     }
-//   }, 2000 / goal);
-// } 
+for (let i = 0; i < 6; i++) {
+  finalColor2.push(
+    randomDigit2[Math.trunc(Math.random() * randomDigit2.length)]
+  );
+}
+let theColor1 = `#${finalColor1.join("")}`;
+let theColor2 = `#${finalColor2.join("")}`;
+// document.body.append(theColor);
+document.body.style.backgroundImage = `linear-gradient(${theColor1},${theColor2})`;
+let serialEl = document.querySelector(".serial");
+let btnEl = document.querySelector(".generate");
+btnEl.addEventListener("click", () => {
+  let passChars =
+    "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM";
+  let charCount = 10;
+  let pass = "";
+  for (let i = 0; i < charCount; i++) {
+    pass += passChars[Math.trunc(Math.random() * passChars.length)];
+  }
+  serialEl.innerHTML = pass;
+});

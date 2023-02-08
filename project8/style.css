@@ -5,30 +5,60 @@ body{
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
-
-  font-size: 28px;
+  background-color: rgb(28, 24, 48);
+  font-size: 22px;
 }
-.w{
-  width: 100%;  
-  height: 100vh;
-
+.content{
+  margin: 20px auto;
+  width: 70%;
+  background-color: rgb(224, 224, 224);
+  padding: 30px ;
 }
-section{
-  height: 100vh;
+.content .taps{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #909090;
+  color: rgb(19, 19, 19);
+  font-size: 27px;
+  font-weight: 600;
+}
+.content .taps .tap{
+  cursor: pointer;
+  text-align: center;
+  padding: 15px 20px;
+  flex: 1;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
+}
+.content .taps .tap:hover ,
+.content .taps .tap.active{
+  background-color: rgb(154, 154, 252);
+  color: white;
+}
+.content .cards{
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(calc(20% - 20px),1fr));
+  margin: 20px 0px;
+  gap: 20px;
+}
+.content .cards .card{
+  color: #353535;
+  font-size: 30px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-section:nth-child(odd){
-  background-color: #ddd;
+.content .cards .card.web{
+  background-color: rgb(255, 74, 74);
 }
-.nums{
-  display: flex;
-  width: 400px;
+.content .cards .card.marketing{
+  background-color: rgb(77, 118, 255);
 }
-.nums .num{
-  flex: 1;
-  text-align: center;
+.content .cards .card.design{
+  background-color: rgb(75, 255, 156);
 }
-

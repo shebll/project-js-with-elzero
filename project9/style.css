@@ -5,68 +5,39 @@ body{
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
+  min-height: 100vh;
   font-size: 22px;
-}
-section{
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
 }
-section:nth-child(odd){
-  background-color: #ff9999;
+.serial{
+  background-color: #dadada;
+  padding: 20px 80px;
+  width: fit-content;
+  margin: 100px auto 0px;
+  color: #222222;
+  font-size: 47px;
+  font-weight: 700;
+  border-radius: 10px;
 }
-.skills{
-
+.generate{
+  background-color: #cf5151;
+  padding: 35px 14px;
+  line-height: 0;
+  width: fit-content;
+  margin: 19px auto;
+  color: #f6f6ff;
+  font-size: 35px;
+  font-weight: 700;
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: 0.4s;
+  -webkit-transition: 0.4s;
+  -moz-transition: 0.4s;
+  -ms-transition: 0.4s;
+  -o-transition: 0.4s;
 }
-.skills h1{
+.generate:hover{
+  background-color: #a80a0a;
   color: #ffffff;
-  margin: 0%;
-}
-.skills .progress{
-  position: relative;
-  height: 37px;
-  width: 550px;
-  background: #d2d2d2;
-  margin-bottom: 18px;
-}
-.skills .progress span{
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  background-color: #1495ff;
-  transition: width 0.5s ease-in-out;
-  -webkit-transition: width 0.5s ease-in-out;
-  -moz-transition: width 0.5s ease-in-out;
-  -ms-transition: width 0.5s ease-in-out;
-  -o-transition: width 0.5s ease-in-out;
-}
-.skills .progress span::before{
-  position: absolute;
-  content: attr(data-width);
-  line-height: 1;
-  padding: 3px 10px;
-  color: wheat;
-  font-size: 19px;
-  font-weight: bold;
-  text-align: center;
-  width: 20px;
-  height: 20px;
-  background-color: #1495ff;
-  top: -33px;
-  border-radius: 2px;
-  right: -15px;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  opacity: 1;
-  transition: opacity 0.5s .8s ease-in-out;
-  -webkit-transition: opacity 0.5s .8s ease-in-out;
-  -moz-transition: opacity 0.5s .8s ease-in-out;
-  -ms-transition: opacity 0.5s .8s ease-in-out;
-  -o-transition: opacity 0.5s .8s ease-in-out;
 }

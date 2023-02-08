@@ -5,29 +5,91 @@ body{
   margin: 0;
   padding: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
+  min-height: 100vh;
   font-size: 22px;
+  background-color: #757b99;
 
 }
-.CONTENT{
-  width: 400px;
+ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+li{
+  margin: 0;
+  padding: 0;
+}
+a{
+  color: #fff ;
+  text-decoration: none;
+  display: block;
+}
+.nav .nav-btn-open{
+  cursor: pointer;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(100px,1fr));
-  align-items: center;
-  height: 100px;
-  font-size: 25px;
-  background-color: #cebba0;
-  justify-content: center;
-  color: #111111;
-  -webkit-transform: translate(-50%,-50%);
-  -moz-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  -o-transform: translate(-50%,-50%);
-}
-span{
+  right: 20px;
+  top: 20px;
+  color: rgb(23, 58, 255);
   text-align: center;
+  border-radius: 50%;
+  font-weight: bold;
+  border: 2px solid rgb(255, 185, 79);
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
+.nav .content{
+  height: 100vh;
+  width: 100%;
+  z-index: 99999;
+  display: flex;
+  background-color: #616161;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  transform: translateY(-100%);
+  transition: all 0.5s;
+  -webkit-transform: translateY(-100%);
+  -moz-transform: translateY(-100%);
+  -ms-transform: translateY(-100%);
+  -o-transform: translateY(-100%);
+  -webkit-transition: all 0.5ss;
+  -moz-transition: all 0.5ss;
+  -ms-transition: all 0.5ss;
+  -o-transition: all 0.5ss;
+}
+.nav .content .nav-btn-close{
+  cursor: pointer;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  color: rgb(184, 60, 60);
+  text-align: center;
+  border-radius: 50%;
+  border: 2px solid rgb(65, 65, 65);
+  width: 30px;
+  height: 30px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.nav .content ul{
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 700;
+
+}
+.nav .content ul li{
+  padding: 17px;
+  margin-bottom: 11px;
+}
+.nav .content ul li:hover{
+  background-color: #4a69ff;
+}
+

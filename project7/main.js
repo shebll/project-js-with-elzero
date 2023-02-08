@@ -22,15 +22,3 @@ let theColor1 = `#${finalColor1.join("")}`;
 let theColor2 = `#${finalColor2.join("")}`;
 // document.body.append(theColor);
 document.body.style.backgroundImage = `linear-gradient(${theColor1},${theColor2})`;
-let serialEl = document.querySelector(".serial");
-let btnEl = document.querySelector(".generate");
-btnEl.addEventListener("click", () => {
-  let passChars =
-    "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPLKJHGFDSAZXCVBNM";
-  let charCount = 10;
-  let pass = "";
-  for (let i = 0; i < charCount; i++) {
-    pass += passChars[Math.trunc(Math.random() * passChars.length)];
-  }
-  serialEl.innerHTML = pass;
-});

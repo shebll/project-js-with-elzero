@@ -1,22 +1,28 @@
-let section = document.querySelector(".three");
-let nums = document.querySelectorAll(".three .nums .num");
-let flag = false;
-function startCount(el) {
-  let goal = el.dataset.goal;
-  let counter = setInterval(() => {
-    el.innerHTML++;
-    if (el.textContent == goal) {
-      clearInterval(counter);
-    }
-  }, 2000 / goal);
+let taps = document.querySelectorAll(".content .tap");
+let cards = document.querySelectorAll(".content .card");
+
+taps.forEach((tap) => {
+  tap.addEventListener("click", removeAllActive);
+  tap.addEventListener("click", mangeCards);
+  tap.addEventListener("click", () => {
+    let s = document.querySelectorAll(
+      `.content .cards .card.${tap.innerHTML.toLowerCase()}`
+    );
+    s.forEach((s) => {
+      s.style.display = "flex";
+    });
+  });
+});
+
+//function remove all active class and put on the owner
+function removeAllActive() {
+  taps.forEach((tap) => {
+    tap.classList.remove("active");
+    this.classList.add("active");
+  });
 }
-window.onscroll = function () {
-  if (window.scrollY >= section.offsetTop) {
-    if (!flag) {
-      nums.forEach((num) => {
-        startCount(num);
-      });
-    }
-    flag = true;
-  }
-};
+function mangeCards() {
+  cards.forEach((card) => {
+    card.style.display = "none";
+  });
+}
